@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman Lakhuja</title>
+<style>
+/* Reset CSS */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Background image */
+body {
+  background-image: url(woodbg1.jpg); /* Default background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto; /* Move the container to the middle */
+  padding: 20px; /* Reduce padding for better centering */
+  background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+  border-radius: 10px;
+  text-align: center; /* Center content horizontally */
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Circle shape */
+  margin-bottom: 20px;
+  /* border: 5px solid #555; */
+  border: 6px double #40a1ce;
+}
+
+h1 {
+  text-align: center;
+  color: #333; /* Dark gray text */
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif; /* Arial Rounded MT Bold font */
+}
+
+ul#socialLinks {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+ul#socialLinks li {
+  margin-bottom: 10px;
+}
+
+ul#socialLinks li a {
+  display: block;
+  padding: 15px;
+  background-color: #A60CFE; /* Blue background #007bff  61BFF9*/
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center; /* Center text */
+}
+
+ul#socialLinks li a:hover {
+  background-color: #693686; /* Darker blue on hover 0056b3*/
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* Semi-transparent black background */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="myprofilepic1.jpg" alt="Profile Picture" class="profile-pic"> <!-- Your profile picture -->
+  <h1>Aman Lakhuja</h1>
+  <ul id="socialLinks">
+	<li><a href="https://www.linkedin.com/in/aman-lakhuja-2a02962b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a></li>
+	<li><a href="https://www.instagram.com/aman_lakhuja?igsh=OGQ5ZDc2ODk2ZA==">Instagram</a></li>
+    <li><a href="https://www.facebook.com/aman.lakhuja?mibextid=ZbWKwL">Facebook</a></li>
+
+    
+  
+  </ul>
+</div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Add New Link</h2>
+    <input type="text" id="linkName" placeholder="Name" style="width: 100%; margin-bottom: 10px;">
+    <input type="text" id="linkURL" placeholder="URL" style="width: 100%; margin-bottom: 10px;">
+    <button id="addLinkBtnModal">Add</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var modal = document.getElementById("myModal");
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function addLink() {
+    var linkName = document.getElementById("linkName").value;
+    var linkURL = document.getElementById("linkURL").value;
+
+    if (linkName.trim() === "" || linkURL.trim() === "") {
+      alert("Please enter both name and URL.");
+      return;
+    }
+
+    var ul = document.getElementById("socialLinks");
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.setAttribute("href", linkURL);
+    a.innerHTML = linkName;
+    li.appendChild(a);
+    ul.appendChild(li);
+
+    document.getElementById("linkName").value = "";
+    document.getElementById("linkURL").value = "";
+
+    modal.style.display = "none";
+  }
+
+  document.getElementById("addLinkBtnModal").addEventListener("click", addLink);
+});
+</script>
+
+</body>
+</html>
