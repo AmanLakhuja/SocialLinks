@@ -169,9 +169,20 @@ document.addEventListener("DOMContentLoaded", function() {
   // JavaScript to detect Android devices and change background image
   var isAndroid = /android/i.test(navigator.userAgent);
   if (isAndroid) {
-    document.body.style.backgroundImage = "url('androidbg1.jpg')";
+    // Set the background images as an array
+    var backgroundImages = [
+      "url('androidbg1.jpg')", // First wallpaper
+      "url('androidbg2.jpg')"  // Second wallpaper
+      // Add more wallpapers as needed
+    ];
+
+    // Randomly select an index from the array
+    var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+
+    // Set the selected background image
+    document.body.style.backgroundImage = backgroundImages[randomIndex];
     document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center bottom";
+    document.body.style.backgroundPosition = "center bottom"; // Align background image to the bottom
   }
 });
 </script>
