@@ -170,6 +170,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var isAndroid = /android/i.test(navigator.userAgent);
   if (isAndroid) {
     document.body.style.backgroundImage = "url(androidbg3.jpg)";
+    var container = document.querySelector('.container');
+    container.style.maxWidth = '80%';
   }
 });
 </script>
