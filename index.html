@@ -11,7 +11,7 @@ body, html {
   padding: 0;
 }
 
-/* Background image */
+/* Default background image */
 body {
   background-image: url(woodbg1.jpg); /* Default background image */
   background-size: cover;
@@ -110,12 +110,9 @@ ul#socialLinks li a:hover {
   <img src="myprofilepic1.jpg" alt="Profile Picture" class="profile-pic"> <!-- Your profile picture -->
   <h1>Aman Lakhuja</h1>
   <ul id="socialLinks">
-	<li><a href="https://www.linkedin.com/in/aman-lakhuja-2a02962b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a></li>
-	<li><a href="https://www.instagram.com/aman_lakhuja?igsh=OGQ5ZDc2ODk2ZA==">Instagram</a></li>
+    <li><a href="https://www.linkedin.com/in/aman-lakhuja-2a02962b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a></li>
+    <li><a href="https://www.instagram.com/aman_lakhuja?igsh=OGQ5ZDc2ODk2ZA==">Instagram</a></li>
     <li><a href="https://www.facebook.com/aman.lakhuja?mibextid=ZbWKwL">Facebook</a></li>
-
-    
-  
   </ul>
 </div>
 
@@ -168,6 +165,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   document.getElementById("addLinkBtnModal").addEventListener("click", addLink);
+
+  // JavaScript to detect Android devices and change background image
+  var isAndroid = /android/i.test(navigator.userAgent);
+  if (isAndroid) {
+    document.body.style.backgroundImage = "url('androidbg1.jpg')";
+  }
 });
 </script>
 
